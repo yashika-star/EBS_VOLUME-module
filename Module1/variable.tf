@@ -18,3 +18,8 @@ variable "owner" {
   type        = list(string)
   description = "owner of instance"
 }
+
+variable "security_group_ids" {
+  type = list(string)
+  description = "security group ids"
+}

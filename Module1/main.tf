@@ -13,5 +13,10 @@ resource "aws_instance" "multiple_instances" {
     Owner = var.owner[0]
   }
 
+  security_groups = [var.security_group_ids[count.index]]
+
 }
 
+output "ec2_ids" {
+  value = [for inst in aws_instance.multiple_instances: inst.id]
+}
